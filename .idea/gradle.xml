@@ -9,7 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/retrofitdemo" />
+            <option value="$PROJECT_DIR$/dynamicfeature" />
+            <option value="$PROJECT_DIR$/gameplane" />
+            <option value="$PROJECT_DIR$/gametiantianshuqianlibrary" />
+            <option value="$PROJECT_DIR$/navigationlibrary" />
+            <option value="$PROJECT_DIR$/retrofitlibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

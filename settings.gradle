@@ -1,2 +1,2 @@
-include ':app', ':retrofitlibrary'
+include ':app', ':retrofitlibrary', ':navigationlibrary', ':dynamicfeature', ':gameplane', ':gametiantianshuqianlibrary'
 rootProject.name='KotlinTest'
