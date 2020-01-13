@@ -10,6 +10,7 @@ import com.hgwxr.gameplane.GameHomeActivity
 import com.hgwxr.gametiantianshuqianlibrary.tiantianshuqian.TianTianShuQianActivity
 import com.hgwxr.kotlintest.R
 import com.hgwxr.navigationlibrary.NavigationActivity
+import com.hgwxr.rekotlin.ReKotlinActivity
 import com.hgwxr.retrofitlibrary.RetrofitActivity
 import kotlinx.android.synthetic.main.data_item.view.*
 
@@ -40,6 +41,12 @@ class DataAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerV
                 "",
                 "TianTianShuQian-demo",
                 View.OnClickListener { TianTianShuQianActivity.start(context as Activity) }
+            ))
+        list.add(
+            DataItem(
+                "",
+                "re-kotlin",
+                View.OnClickListener { ReKotlinActivity.start(context as Activity) }
             ))
     }
 
