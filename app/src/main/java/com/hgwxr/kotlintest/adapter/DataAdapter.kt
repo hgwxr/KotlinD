@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hgwxr.gameplane.GameHomeActivity
 import com.hgwxr.gametiantianshuqianlibrary.tiantianshuqian.TianTianShuQianActivity
+import com.hgwxr.gestures.GesturesActivity
 import com.hgwxr.kotlintest.R
 import com.hgwxr.navigationlibrary.NavigationActivity
 import com.hgwxr.rekotlin.ReKotlinActivity
@@ -47,6 +48,12 @@ class DataAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerV
                 "",
                 "re-kotlin",
                 View.OnClickListener { ReKotlinActivity.start(context as Activity) }
+            ))
+        list.add(
+            DataItem(
+                "",
+                "gesture",
+                View.OnClickListener { GesturesActivity.start(context as Activity) }
             ))
     }
 
