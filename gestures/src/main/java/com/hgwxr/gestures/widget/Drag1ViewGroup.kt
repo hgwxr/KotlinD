@@ -1,12 +1,16 @@
 package com.hgwxr.gestures.widget
 
+import android.R.attr.factor
 import android.content.Context
+import android.graphics.Interpolator
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.view.animation.PathInterpolatorCompat
 import androidx.customview.widget.ViewDragHelper
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 
 
 class Drag1ViewGroup @JvmOverloads constructor(
@@ -20,6 +24,7 @@ class Drag1ViewGroup @JvmOverloads constructor(
         val heightPixels = resources.displayMetrics.heightPixels/2
         mViewDragHelper = ViewDragHelper.create(this, object : ViewDragHelper.Callback() {
            var topT=100
+            val create = LinearOutSlowInInterpolator()
             override fun tryCaptureView(child: View, pointerId: Int): Boolean {
                 return true
             }
@@ -30,7 +35,9 @@ class Drag1ViewGroup @JvmOverloads constructor(
             }
 
             override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
-                return top
+                val interpolation = create.getInterpolation(top.toFloat())
+                Log.i("DEBUG_TAG", "clampViewPositionVertical: $top,$interpolation")
+                return interpolation.toInt()
             }
         })
     }

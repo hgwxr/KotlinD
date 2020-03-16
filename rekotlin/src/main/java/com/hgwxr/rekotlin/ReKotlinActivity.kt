@@ -13,7 +13,9 @@ import com.hgwxr.rekotlin.actions.CounterActionDecrease
 import com.hgwxr.rekotlin.actions.CounterActionIncrease
 import com.hgwxr.rekotlin.redurces.counterReducer
 import com.hgwxr.rekotlin.state.AppState
+import com.hgwxr.rekotlin.test.TestAction
 import kotlinx.android.synthetic.main.activity_re_kotlin.*
+import tw.geothings.rekotlin.Action
 import tw.geothings.rekotlin.Store
 import tw.geothings.rekotlin.StoreSubscriber
 
@@ -21,6 +23,10 @@ val mainStore = Store(
     reducer = ::counterReducer,
     state = null
 )
+
+
+typealias TestFunction = (TestAction) -> Unit
+typealias TestMiddleware =  (TestFunction) -> TestFunction//(TestFunction, () -> String?) -> (TestFunction) -> TestFunction
 class ReKotlinActivity : AppCompatActivity(), StoreSubscriber<AppState> {
     companion object {
         fun start(activity: Activity) {
@@ -28,6 +34,17 @@ class ReKotlinActivity : AppCompatActivity(), StoreSubscriber<AppState> {
             activity.startActivity(intent)
         }
     }
+     val  testMiddleware: List<TestMiddleware> = emptyList()
+//     var testDispatchFunction: TestFunction = testMiddleware
+//        .reversed()
+//        .fold({ action: TestFunction -> {
+//            Log.e("A:","TestFunction ")
+//        } }, { action, testMiddleware ->
+//            {
+////                Log.e("A:","testDispatchFunction $testMiddleware")
+//            }
+//
+//        })
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_re_kotlin)
